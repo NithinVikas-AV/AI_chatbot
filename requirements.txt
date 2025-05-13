@@ -1,0 +1,3 @@
+pymongo google-generativeai
+pandas
+google.generativeai
