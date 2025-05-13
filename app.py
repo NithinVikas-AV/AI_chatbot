@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-genai.configure(api_key="AIzaSyAzbxmAPyzcR595QvjWsTHoIlprJmaKlJQ")
+genai.configure(api_key="")
 
 model = genai.GenerativeModel("gemini-2.0-flash")
 embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
