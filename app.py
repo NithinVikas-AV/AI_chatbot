@@ -3,10 +3,10 @@ import numpy as np
 import google.generativeai as genai
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
-genai.configure(api_key="")
+genai.configure(api_key="AIzaSyAzbxmAPyzcR595QvjWsTHoIlprJmaKlJQ")
 
 model = genai.GenerativeModel("gemini-2.0-flash")
 embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
