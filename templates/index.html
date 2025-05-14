@@ -4,26 +4,29 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gemini CSV Chatbot</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
-    <!--<link rel="stylesheet" href="style.css" />-->
+    <title>Gemini mini Chatbot</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/> -->
+    <link rel="stylesheet" href="static/style.css" />
 </head>
 
 <body>
+    <img src="static/background5.jpg" class="top-right-image" alt="icon">
     <div class="chat-container">
         <div class="chat-header">Gemini mini</div>
-        <div class="chat-box" id="chat-box"></div>
-        <div id="loading" style="display: none; text-align: center; padding: 10px;">Loading...</div>
 
-        <form id="chat-form">
-            <input type="text" id="user-input" placeholder="Ask a question..." autocomplete="off" required />
-            <button type="submit">Send</button>
-        </form>
-        <form id="upload-form" enctype="multipart/form-data">
-            <input type="file" name="file" id="csvFile" accept=".csv" />
-            <button type="submit">Upload</button>   
-        </form>
-    </div>
+        <div class="chat-box" id="chat-box"></div>
+
+        <div id="loading" style="text-align: center; display: none;">Loading...</div>
+
+        <div class="input-area">
+            <form id="chat-form">
+                <input type="text" id="user-input" placeholder="Ask a question..." required />
+                <label for="csvFile" class="upload-label">📎</label>
+                <input type="file" id="csvFile" accept=".csv" hidden />
+                <button type="submit">➤</button>
+            </form>
+        </div>
+    </div>   
 
     <script>
         const form = document.getElementById("chat-form");

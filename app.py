@@ -100,4 +100,4 @@ def chat():
         return jsonify({"reply": "An error occurred. Please try again later."}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)  # Removed debug=True; use gunicorn for production (e.g., gunicorn -w 4 -b 0.0.0.0:5000 app:app)
+    app.run(debug=True)
