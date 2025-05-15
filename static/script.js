@@ -44,7 +44,7 @@ csvInput.addEventListener("change", async () => {
         });
 
         if (response.ok) {
-            addMessage("bot", `✅ File "${file.name}" uploaded successfully.`);
+            addMessage("bot", `✅ File "${file.name}" uploaded successfully and embeddings created.`);
         } else {
             addMessage("bot", "❌ File upload failed.");
         }
