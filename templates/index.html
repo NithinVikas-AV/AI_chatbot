@@ -5,12 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gemini mini Chatbot</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/> -->
     <link rel="stylesheet" href="static/style.css" />
 </head>
 
 <body>
-    <img src="static/background5.jpg" class="top-right-image" alt="icon">
+    <!-- <img src="static/background5.jpg" class="top-right-image" alt="icon"> -->
     <div class="chat-container">
         <div class="chat-header">Gemini mini</div>
 
@@ -26,53 +25,10 @@
                 <button type="submit">➤</button>
             </form>
         </div>
-    </div>   
+    </div>
 
-    <script>
-        const form = document.getElementById("chat-form");
-        const input = document.getElementById("user-input");
-        const chatBox = document.getElementById("chat-box");
-        const loading = document.getElementById("loading");
-
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const userMessage = input.value.trim();
-            if (!userMessage || userMessage.length > 500) {
-                addMessage("bot", "Please enter a message (max 500 characters).");
-                return;
-            }
-            addMessage("user", userMessage);
-            input.value = "";
-            loading.style.display = "block";
-
-            try {
-                const response = await fetch("http://127.0.0.1:5000/chat", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: userMessage })
-                });
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    addMessage("bot", errorData.reply || "An error occurred.");
-                    return;
-                }
-                const data = await response.json();
-                addMessage("bot", data.reply);
-            } catch (error) {
-                addMessage("bot", "Failed to get response. Please try again.");
-            } finally {
-                loading.style.display = "none";
-            }
-        });
-
-        function addMessage(sender, text) {
-            const msg = document.createElement("div");
-            msg.className = `message ${sender}`;
-            msg.innerText = text;
-            chatBox.appendChild(msg);
-            msg.scrollIntoView({ behavior: "smooth" });
-        }
-    </script>
+    <!-- External JS file -->
+    <script src="static/script.js"></script>
 </body>
 
 </html>

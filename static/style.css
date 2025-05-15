@@ -44,6 +44,7 @@ body {
 
 .chat-header {
     color: white;
+    border-bottom: 1px solid #3c3636;
     padding: 10px;
     text-align: center;
     font-weight: bolder;
@@ -52,7 +53,7 @@ body {
 }
 
 .input-area {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #3c3636;
     background: r#0A0A0A;
     padding: 10px;
 }

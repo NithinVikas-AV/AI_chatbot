@@ -1,6 +1,5 @@
 google-generativeai
 pandas
-google.generativeai
 flask
 flask_cors
 sentence-transformers
