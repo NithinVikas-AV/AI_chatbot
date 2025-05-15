@@ -60,3 +60,9 @@ function addMessage(sender, text) {
     chatBox.appendChild(msg);
     msg.scrollIntoView({ behavior: "smooth" });
 }
+
+const clearButton = document.getElementById("clear-chat");
+
+clearButton.addEventListener("click", () => {
+    chatBox.innerHTML = "";  // Clear all chat messages
+});

@@ -84,16 +84,6 @@ body {
     background-color: #4a90e2;
 }
 
-#chat-form button {
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
-}
-
 .message {
     max-width: 85%;
     line-height: 1.6;
@@ -120,4 +110,67 @@ body {
     height: auto;
     z-index: 1000;
     /* Ensure it's above other elements */
+}
+
+.clear-button {
+    background-color: #4aa8ff;
+    /* Red background */
+    color: #fff;
+    /* White text */
+    padding: 10px 16px;
+    /* Space inside button */
+    font-size: 14px;    
+    /* Font size */
+    border: none;
+    /* Remove default border */
+    border-radius: 6px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    /* Spacing above button */
+}
+
+.clear-button:hover {
+    background: red;
+    /* Darker red on hover */
+    transform: scale(1.05);
+    /* Slight zoom effect */
+}
+
+.clear-button:active {
+    transform: scale(0.98);
+    /* Click effect */
+}
+
+.submit-button {
+    background: linear-gradient(90deg, #4aa8ff, #a06bff, #ff6fa9);
+    /* Red background */
+    color: #fff;
+    /* White text */
+    padding: 10px 16px;
+    /* Space inside button */
+    font-size: 14px;
+    /* Font size */
+    border: none;
+    /* Remove default border */
+    border-radius: 20px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    /* Spacing above button */
+}
+
+.submit-button:hover {
+    background: linear-gradient(90deg, #4aa8ff, #a06bff, #ff6fa9);
+    transform: scale(1.05);
+    /* Slight zoom effect */
+}
+
+.submit-button:active {
+    transform: scale(0.98);
+    /* Click effect */
 }
