@@ -24,9 +24,13 @@ genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel("gemini-2.0-flash")
 embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
-#Shared file
+# Shared file
 SHARED_FILE = os.path.join("uploads", "shared_file.csv")
 SHARED_TEXT_FILE = os.path.join("uploads", "shared_text.txt")
+
+# Chat History
+chat_history = []
+MAX_HISTORY_LENGTH = 10
 
 def load_or_compute_embeddings(input_df):
     # Build combined_text with column names
@@ -69,6 +73,8 @@ def chat():
             top_matches = df_shared.sort_values('similarity', ascending=False).head(5)
             context_text = "\n\n".join(top_matches['combined_text'].values)
 
+        history_prompt = "\n".join([f"User: {entry['user']}\nBot: {entry['bot']}" for entry in chat_history[-MAX_HISTORY_LENGTH:]])
+
         instruction = """
         You are a polite and concise assistant designed to help users based on the context provided.
         - Use the context below to answer the user's question **only if it is relevant**.
@@ -81,14 +87,23 @@ def chat():
         Instructions before answering:
         {instruction}
 
-        Context:
+        Context From Files:
         {context_text if context_text else "None"}
+
+        Previous Conversation:
+        {history_prompt if history_prompt else "None"}
 
         User Question:
         {prompt}
         """
 
         response = model.generate_content(final_prompt)
+
+        # Append to history
+        chat_history.append({"user": prompt, "bot": response.text})
+        if len(chat_history) > MAX_HISTORY_LENGTH:
+            chat_history.pop(0)
+
         return jsonify({"reply": response.text})
 
     except Exception as e:
